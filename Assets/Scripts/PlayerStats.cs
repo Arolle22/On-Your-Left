@@ -113,7 +113,7 @@ public class PlayerStats : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        if (!canTakeDamage) return;
+        if (!canTakeDamage || hasDied) return;
         canTakeDamage = false;
 
         currentHealth -= damage;
@@ -151,6 +151,8 @@ public class PlayerStats : MonoBehaviour
 
     public void LoseLife()
     {
+        if (hasDied) return;
+        hasDied = true;
         currentLives = Mathf.Max(0, currentLives - 1);
         LevelManager.instance.currentLives = currentLives;
 
@@ -185,13 +187,17 @@ public class PlayerStats : MonoBehaviour
     private IEnumerator WaitThenRespawn()
     {
         yield return new WaitForSeconds(2f);
+        
         if (LivesPanel != null)
         {
             LivesPanel.SetActive(false);
         }
+
+        hasDied = false;
         LevelManager.instance.Respawn();
         Destroy(gameObject);
     }
+
 
 
 

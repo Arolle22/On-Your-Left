@@ -25,22 +25,30 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private float VolumeToDB(float volume)
+    {
+        return Mathf.Log10(Mathf.Clamp(volume, 0.0001f, 1f)) * 20f;
+    }
+
     public void SetMasterVolume(float volume)
     {
-        audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20f);
+        audioMixer.SetFloat("MasterVolume", VolumeToDB(volume));
         PlayerPrefs.SetFloat(MASTER_KEY, volume);
+        PlayerPrefs.Save();
     }
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20f);
+        audioMixer.SetFloat("MusicVolume", VolumeToDB(volume));
         PlayerPrefs.SetFloat(MUSIC_KEY, volume);
+        PlayerPrefs.Save();
     }
 
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20f);
+        audioMixer.SetFloat("SFXVolume", VolumeToDB(volume));
         PlayerPrefs.SetFloat(SFX_KEY, volume);
+        PlayerPrefs.Save();
     }
 
     public void LoadVolumes()
