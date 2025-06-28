@@ -224,7 +224,6 @@ public class PlayerStats : MonoBehaviour
 
         if (other.CompareTag("Pit"))
         {
-            hasDied = true;
             LoseLife();
             UpdateLivesText();
         }
