@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Pit
+  - Coin
+  - LivesText
+  - Collect
+  - Enemy
+  - Bullet
+  - Ground
+  - CoinText
+  - Music
+  - GameOverMusic
+  - LivesScreenText
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Ground
+  - KillZone
+  - Coin
+  - Collect
+  - Enemy
+  - Bullet
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: First
+    uniqueID: 3442915301
+    locked: 0
+  - name: Second
+    uniqueID: 2010339159
+    locked: 0
+  - name: Third
+    uniqueID: 3863593811
+    locked: 0
+  - name: Fourth
+    uniqueID: 31929437
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 3911713161
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  - Player Layer
