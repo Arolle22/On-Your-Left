@@ -15,6 +15,7 @@ public class PlayerStats : MonoBehaviour
     public int coinCount = 0;
 
     public bool hasDied = false;
+    public bool GameOver = false;
     private bool victoryTriggered = false;
     private bool animationPlayedOnGround = false;
     private bool victorySequenceStarted = false;
@@ -171,24 +172,27 @@ public class PlayerStats : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
-            StartCoroutine(PlayGameOverThenLoadScene());
+            if (GameOver == false)
+            {
+                GameOver = true;
+                Debug.Log("Game Over");
+                StartCoroutine(PlayGameOverThenLoadScene());
+            }
         }
     }
 
 
     private IEnumerator WaitThenRespawn()
     {
-        LevelManager.instance.Respawn();
-
         yield return new WaitForSeconds(2f);
         if (LivesPanel != null)
         {
             LivesPanel.SetActive(false);
         }
-
+        LevelManager.instance.Respawn();
         Destroy(gameObject);
     }
+
 
 
 
